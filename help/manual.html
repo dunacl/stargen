@@ -1,0 +1,1118 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html lang="en"><head>
+	<meta http-equiv="content-type" content="text/html; charset=windows-1252">
+	<title>StarGen User's Manual</title>
+	<meta name="generator" content="BBEdit 6.1.2">
+
+<script type="text/javascript" language="javascript" charset="iso-8859-1">
+<!--
+function BuildCommand()
+{
+	var command = "";
+    var cat = document.StarGenForm.Catalog.options [
+				document.StarGenForm.Catalog.selectedIndex
+			  ].value;
+	var cat	= document.StarGenForm.Catalog.options [
+				document.StarGenForm.Catalog.selectedIndex
+			  ].value;
+
+    if (cat == 'w')
+    {
+    	document.StarGenForm.SolStation.disabled = false;
+    	document.StarGenForm.SolStation.style.display = 'inline';
+
+    	document.StarGenForm.Dole.style.display = 'none';
+    	document.StarGenForm.Dole.disabled = true;
+    	document.StarGenForm.Dole.selectedIndex = 0;
+
+    	document.StarGenForm.Mass.disabled = true;
+    	document.StarGenForm.Mass.value = "";
+    } else if (cat == 'd')
+    {
+    	document.StarGenForm.SolStation.style.display = 'none';
+    	document.StarGenForm.SolStation.disabled = true;
+    	document.StarGenForm.SolStation.selectedIndex = 0;
+
+    	document.StarGenForm.Dole.disabled = false;
+    	document.StarGenForm.Dole.style.display = 'inline';
+
+    	document.StarGenForm.Mass.disabled = true;
+    	document.StarGenForm.Mass.value = "";
+    } else if (cat == 'none')
+    {
+    	document.StarGenForm.SolStation.style.display = 'none';
+    	document.StarGenForm.SolStation.disabled = true;
+    	document.StarGenForm.SolStation.selectedIndex = 0;
+
+    	document.StarGenForm.Dole.style.display = 'none';
+    	document.StarGenForm.Dole.disabled = true;
+    	document.StarGenForm.Dole.selectedIndex = 0;
+
+    	document.StarGenForm.Mass.disabled = false;
+    }
+
+	if (cat == 'none')
+	{
+		if (document.StarGenForm.Mass.value != 0)
+			command = command + ' -m' + document.StarGenForm.Mass.value;
+	} else if (cat == 'w')
+	{
+		if (document.StarGenForm.SolStation.value == 'x')
+			command = command + ' -w';
+		else
+			command = command + ' -W' + document.StarGenForm.SolStation.value;
+	} else if (cat == 'd')
+	{
+		if (document.StarGenForm.Dole.value == 'x')
+			command = command + ' -d';
+		else
+			command = command + ' -D' + document.StarGenForm.Dole.value;
+	}
+
+	if (document.StarGenForm.Seed.value != 0)
+		command = command + ' -s' + document.StarGenForm.Seed.value;
+
+	if (document.StarGenForm.Count.value != 0)
+		command = command + ' -n' + document.StarGenForm.Count.value;
+
+	if (document.StarGenForm.Incr.value != 0)
+		command = command + ' -i' + document.StarGenForm.Incr.value;
+
+	if (document.StarGenForm.Gas.checked == true)
+		command = command + ' -g';
+
+	if (document.StarGenForm.Output.value == 'h')
+		command = command + ' -H';
+	else if (document.StarGenForm.Output.value == 2)
+		command = command + ' -2';
+
+	document.StarGenForm.Command.value = command;
+
+	return true;
+}
+//-->
+</script>
+
+</head>
+<body onload="BuildCommand();" vlink="#660000" text="#330000" link="#990000" bgcolor="#FFFFCC" alink="#FF00FF">
+
+<h1 align="center"><a id="id3143969254" name="id3143969254">StarGen User's Manual</a></h1>
+
+<table cellspacing="2" cellpadding="2" border="3" bgcolor="#FFE6CC" align="center">
+<tbody><tr><th colspan="2" bgcolor="#FFE6CC" align="center">
+	<font size="+2" color="#000000">Tau Ceti</font></th></tr>
+<tr bgcolor="#FFE6CC"><td colspan="2">
+<table cellspacing="0" cellpadding="3" border="0" bgcolor="#000000">
+<tbody><tr><td colspan="15" bgcolor="#CC9966" align="center">
+	<font size="+1" color="#000000"><b>13 Planets</b> </font>
+	(<font size="-1" color="#000000">size proportional to Sqrt(Radius)</font>)
+</td></tr>
+<tr valign="middle" bgcolor="#000000">
+<td bgcolor="#000000"><img alt="Sun" src="archivos/Sun.gif" width="15" height="63" border="0"></td>
+	<td bgcolor="#000000"><img alt="Rock" src="archivos/RockPlanet.gif" width="25" height="25" border="0"></td>
+	<td bgcolor="#000000"><img alt="Rock" src="archivos/RockPlanet.gif" width="19" height="19" border="0"></td>
+	<td bgcolor="#000000"><img alt="Terrestrial" src="archivos/TerrestrialPlanet.gif" width="30" height="30" border="0"></td>
+	<td bgcolor="#000000"><img alt="Water" src="archivos/WaterPlanet.gif" width="38" height="38" border="0"></td>
+	<td bgcolor="#000000"><img alt="Ice" src="archivos/IcePlanet.gif" width="33" height="33" border="0"></td>
+	<td bgcolor="#000000"><img alt="Ice" src="archivos/IcePlanet.gif" width="33" height="33" border="0"></td>
+	<td bgcolor="#000000"><img alt="Jovian" src="archivos/JovianPlanet.gif" width="75" height="75" border="0"></td>
+	<td bgcolor="#000000"><img alt="Jovian" src="archivos/JovianPlanet.gif" width="100" height="100" border="0"></td>
+	<td bgcolor="#000000"><img alt="Sub-Jovian" src="archivos/Sub-JovianPlanet.gif" width="54" height="54" border="0"></td>
+	<td bgcolor="#000000"><img alt="Rock" src="archivos/RockPlanet.gif" width="18" height="18" border="0"></td>
+	<td bgcolor="#000000"><img alt="Ice" src="archivos/IcePlanet.gif" width="32" height="32" border="0"></td>
+	<td bgcolor="#000000"><img alt="Sub-Jovian" src="archivos/Sub-JovianPlanet.gif" width="53" height="53" border="0"></td>
+	<td bgcolor="#000000"><img alt="Rock" src="archivos/RockPlanet.gif" width="26" height="26" border="0"></td>
+<td valign="bottom" bgcolor="#000000" align="right"><a href="https://www.eldacur.com/~brons/NerdCorner/StarGen/Key.html"><font size="-3" color="#FFE6CC">See<br>Key</font></a></td>
+</tr></tbody></table></td></tr>
+<tr><td colspan="2" align="center"><table>
+	<tbody><tr><td width="5%" align="right"><small>#2</small></td>
+		<td><small>Rock:  Low-G, Cold, Airless</small></td></tr>
+	<tr><td width="5%" align="right"><small>#3</small></td>
+		<td><small>Terrestrial:  Cool, Wet</small></td></tr>
+	<tr><td width="5%" align="right"><small>#4</small></td>
+		<td><small>Water:  High-G, Extremely thick atmosphere</small></td></tr></tbody></table></td></tr>
+</tbody></table>
+<p>
+
+</p><h2 align="center"><a id="id3153603210" name="id3153603210">Table of Contents</a></h2>
+
+<!--index-->
+<ul>
+	<li><a href="#id3143969254">StarGen User's Manual</a></li>
+	<li><a href="#id3153603210">Table of Contents</a></li>
+	<li><a href="#id3143969255">Introduction</a></li>
+	<li><a href="#id3143969256">Installing StarGen</a></li>
+	<li><a href="#id3143969260">Running StarGen</a></li>
+	<li><a href="#id3143969261">Running StarGen from the command line</a></li>
+	<li><a href="#id3143969262">Running StarGen from the Mac OS UI</a></li>
+	<li><a href="#id3143969263">Command Line Options and Examples</a></li>
+	<li><a href="#id3153603211">Command Line Example Tool</a></li>
+	<li><a href="#id3143969264">Further Reading</a></li>
+</ul>
+<!--/index-->
+
+For Programmers:
+<ul>
+	<li><a href="https://www.eldacur.com/~brons/NerdCorner/StarGen/Manual2-Building.html#id3143969257">Building StarGen</a></li>
+	<li><a href="https://www.eldacur.com/~brons/NerdCorner/StarGen/Manual2-Building.html#id3143969258">Building StarGen on Unix</a></li>
+	<li><a href="https://www.eldacur.com/~brons/NerdCorner/StarGen/Manual2-Building.html#id3143969259">Building StarGen on the Macintosh</a></li>
+</ul>
+
+
+<h2 align="center"><a id="id3143969255" name="id3143969255">Introduction</a></h2>
+
+StarGen is the latest version of a series of programs I've worked on off and on
+over the last thirty years, though none of my code in the current incarnation is
+more than half that age. It's a program for creating moderately believable
+planetary systems around stars other than our own. The most recent version runs
+on Macintosh and Unix machines and produces HTML files as output.
+
+<p>
+
+This file contains the basic documentation for installing and using StarGen. At
+some point it may also document some of the algorithms and techniques used in
+StarGen. For now, see the <a href="http://www.eldacur.com/~brons/NerdCorner/StarGen/StarGen.html">StarGen Web
+page</a>.
+
+A <a href="https://www.eldacur.com/~brons/NerdCorner/StarGen/Manual2-Building.html">second page</a> documents building the
+application from source, for programmers who may want to enhance or alter the
+program.
+
+</p><p>
+
+<strong>Please note</strong>: StarGen is a command line program. It will
+<strong>not</strong> work simply <strong>by clicking</strong> on its icon
+(except in the Classic Mac environment). Therefore, please read the section on
+<a href="#id3143969260">Running StarGen</a>.
+
+</p><p>
+
+StarGen is freely distributable on the conditions that you distribute the whole
+package, that you give credit to at least Stephen Dole, Martyn Fogg, Matt
+Burdick, Ian Burrell, Carl Burke and Chris Croughton AKA Keris, and me in any
+derivative works, and that you make a reasonable effort to inform me of any
+additions you make to it or public distributions that you make of it.
+
+</p><p>
+
+I may be contacted at:
+
+</p><p>
+
+</p><table cellspacing="2" cellpadding="2" bgcolor="#FFFFFF">
+<tbody><tr>
+	<th>E-Mail:</th>
+	<td><a href="mailto:brons@eldacur.com">brons@eldacur.com</a></td>
+</tr><tr>
+	<th>Web:</th>
+	<td><a href="http://www.eldacur.com/~brons/index.html">http://www.eldacur.com/~brons/</a></td>
+</tr>
+</tbody></table>
+
+<h2 align="center"><a id="id3143969256" name="id3143969256">Installing StarGen</a></h2>
+
+Since this manual is distributed in the StarGen kit, you've probably already
+performed at least the first step of installing it, downloading and unpacking
+the archive. At present there are four versions of the archive: one containing
+the executable Macintosh programs, one with a Windows executable, a universal
+source kit, and a Mac-specific source kit..
+
+<p>
+
+</p><center>
+<table cellspacing="1" cellpadding="2" border="1">
+	<caption align="bottom">
+		StarGen Distribution Kits
+	</caption>
+	<tbody><tr>
+		<th>File</th>
+		<th>OS</th>
+		<th>Hardware</th>
+		<th>Type</th>
+		<th>Description</th>
+	</tr>
+	<tr>
+		<td align="center"><a href="http://homepage.mac.com/brons/kits/StarGen.sit"><img src="archivos/sit.gif" alt="sit"></a><br><a href="http://homepage.mac.com/brons/kits/StarGen.sit">StarGen.sit</a></td>
+		<td>Mac OS</td>
+		<td>Mac 68K &amp; PPC</td>
+		<td>Executable</td>
+		<td>Macintosh executables for 68K and PPC</td>
+	</tr>
+	<tr>
+		<td align="center"><a href="http://homepage.mac.com/brons/kits/StarGen.zip"><img src="archivos/zip.gif" alt="zip"></a><br><a href="http://homepage.mac.com/brons/kits/StarGen.zip">StarGen.zip</a></td>
+		<td>Windows</td>
+		<td>Intel</td>
+		<td>Executable</td>
+		<td>Win32 executable</td>
+	</tr>
+	<tr>
+		<td align="center"><a href="http://homepage.mac.com/brons/kits/StarGenSource.sit"><img src="archivos/sit.gif" alt="sit"></a><br><a href="http://homepage.mac.com/brons/kits/StarGenSource.sit">StarGenSource.sit</a></td>
+		<td>Mac OS</td>
+		<td>Mac 68K &amp; PPC</td>
+		<td>Source</td>
+		<td>Macintosh CodeWarrior source files. </td>
+	</tr>
+	<tr>
+		<td align="center"><a href="http://homepage.mac.com/brons/kits/StarGenSource.zip"><img src="archivos/zip.gif" alt="zip"></a><br><a href="http://homepage.mac.com/brons/kits/StarGenSource.zip">StarGenSource.zip</a></td>
+		<td>Any</td>
+		<td>Any</td>
+		<td>Source</td>
+		<td>Mac OS X, Mac, Unix and Windows source kit</td>
+	</tr>
+</tbody></table>
+</center>
+
+
+<p>
+
+If you've downloaded one of the two executable kits, StarGen.sit or
+stargenexe.zip, all you need to do is expand them and you're done.
+
+</p><p>
+
+If you've downloaded one of the source kits, you'll need to expand them and then
+follow the appropriate <a href="https://www.eldacur.com/~brons/NerdCorner/StarGen/Manual2-Building.html">Building StarGen
+instructions</a>.
+
+</p><p>
+
+Many browsers will expand Zip and StuffIt archives when you download them. If
+yours didn't then you will have to expand the archive. On a Macintosh, either
+Mac OS X, or the classic Mac OS, simply drop it on <a href="http://www.aladdinsys.com/expander/">Stuffit Expander</a>.
+
+</p><p>
+
+On Windows there are several programs for expanding zip files: <a href="http://www.winzip.com/">WinZip</a>, <a href="http://www.pkunzip.com/">PKZIP</a>, <a href="http://www.stuffit.com/win/index.html">StuffIt Expander</a>.
+
+</p><p>
+
+On Mac OS X, Darwin and other Unix, DOS, and OS/2 implementations you can unzip
+with <a href="http://www.pkunzip.com/">PKZIP</a>. There are now versions of <a href="http://www.stuffit.com/unix/index.html">StuffIt</a>, including the free
+Expander for Linux and Solaris, as well.
+
+</p><p>
+
+On most Unix systems, including Mac OS X or Darwin, you can unzip the source kit
+from the command line.
+
+</p><p>
+
+</p><div style="left-margin:3ex;background-color:#FFFFFF;padding:1ex;border:1px solid;font-family:monaco,courier,courier new,monospace">
+<tt>% ls -l<br>
+-rw-r--r--  1 brons  staff  108908 Aug 19 03:38 stargen.zip<br>
+% unzip stargen<br>
+Archive:  stargen.zip<br>
+&nbsp;&nbsp;inflating: Credits.txt     <br>
+&nbsp;&nbsp;inflating: ReadMe.txt              <br>
+&nbsp;&nbsp; <i>[... many lines removed ...]</i><br>
+&nbsp;extracting: html/WaterPlanet.gif    <br>
+&nbsp;&nbsp;inflating: html/Key.html           <br>
+% ls<br>
+Credits.txt&nbsp; Makefile&nbsp;&nbsp;&nbsp;&nbsp; StarGen.prj&nbsp;
+accrete.h&nbsp;&nbsp;&nbsp; display.h&nbsp;&nbsp;&nbsp;
+html&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+propert.h&nbsp;&nbsp;&nbsp; stargen.zip&nbsp;
+utils.c&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+Dumas.c&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Manual.html&nbsp;
+StarGen.r&nbsp;&nbsp;&nbsp; const.h&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+enviro.c&nbsp;&nbsp;&nbsp;&nbsp; mac_prefix.h
+stargen.c&nbsp;&nbsp;&nbsp; structs.h&nbsp;&nbsp;&nbsp;
+utils.h&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+Dumas.h&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; ReadMe.txt&nbsp;&nbsp;
+accrete.c&nbsp;&nbsp;&nbsp; display.c&nbsp;&nbsp;&nbsp;
+enviro.h&nbsp;&nbsp;&nbsp;&nbsp; propert.c&nbsp;&nbsp;&nbsp;
+stargen.h&nbsp;&nbsp;&nbsp; types.h<br>
+% ls html/<br>
+Sub-JovianPlanet.gif&nbsp;&nbsp;
+Sub-Jovian.gif&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+Asteroids.gif&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+Ice.gif&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+
+Martian.gif&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+ UnknownPlanet.gif&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+AsteroidsPlanet.gif&nbsp;&nbsp;&nbsp;
+IcePlanet.gif&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+MartianPlanet.gif&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+Sun.gif&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+
+Venusian.gif&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+
+Console.gif&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+
+Jovian.gif&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+
+Rock.gif&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+ Terrestrial.gif&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+VenusianPlanet.gif&nbsp;&nbsp;&nbsp;&nbsp;
+GasDwarf.gif&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+ JovianPlanet.gif&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+RockPlanet.gif&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+TerrestrialPlanet.gif&nbsp;
+Water.gif&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+ GasDwarfPlanet.gif&nbsp;&nbsp;&nbsp;&nbsp;
+Key.html&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+
+Unknown.gif&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+ WaterPlanet.gif&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <br>
+</tt>
+</div>
+
+<h2 align="center"><a id="id3143969260" name="id3143969260">Running StarGen</a></h2>
+
+StarGen is designed as a command line utility, using Unix-style options. I've
+built the classic Macintosh application using Metrowerks Code Warrior's console
+support. The following two sections describe the way the program is invoked in
+both environments. The third section below describes the various options
+available in both environments.
+
+<h3 align="center"><a id="id3143969261" name="id3143969261">Running StarGen from the command line</a></h3>
+
+On any operating, except older versions of Mac OS, you can run StarGen from the
+<strong>command line</strong>. On Windows, you would run it from a <b>Command
+Prompt</b> window (sometimes called a "DOS box"), On Mac OS X you would run it
+from a <b>Terminal</b> Window. The following table shows what the icons for
+these programs look like:
+
+<p>
+
+</p><table cellspacing="0" cellpadding="2" border="1" align="center">
+	<tbody><tr>
+		<th>Old Windows Systems</th>
+		<th>Windows 2000</th>
+		<th>MacOS X</th>
+	</tr>
+	<tr>
+		<td bgcolor="#008080" align="center"><img src="archivos/DOSbox.gif" alt="DOS Box on older Windows systems" width="80" height="80"></td>
+		<td bgcolor="#3A6EA5" align="center"><img src="archivos/CommandPrompt.gif" alt="Command Prompt on Windows 2000" width="80" height="80"></td>
+		<td bgcolor="#000000" align="center"><img src="archivos/Terminal.jpg" alt="" width="80" height="80"></td>
+	</tr>
+</tbody></table>
+
+<p>
+
+On Windows, windows you can also find <b>Command Prompt</b> on the Start Menu:
+
+</p><p>
+
+</p><center> <img src="archivos/StartMenu.gif" alt="Start -&gt; Accessories -&gt;
+Command Prompt" width="544" height="327"> </center>
+
+<p>
+
+On Mac OS C, you can find <b>Terminal</b> in the <b>Utilities</b> folder in your
+<b>Applications</b> folder:
+
+</p><p>
+
+</p><center>
+<img src="archivos/RunningTerminal.jpg" alt="" width="545" height="246">
+</center>
+
+<p>
+
+Once you've started up a terminal or command line window, you should change
+directories into the directory where StarGen is stored. This is typically done
+with the <tt><b>cd</b></tt> command. You can then run stargen by invoking it
+with one of these commands:
+
+</p><p>
+
+</p><table cellspacing="0" cellpadding="5" border="1" align="center">
+	<tbody><tr>
+		<th>Windows</th>
+		<th>Unix and<br>MacOS X</th>
+	</tr>
+	<tr>
+		<td bgcolor="#FFFFFF"><pre style="background-color:#FFFFFF;width:16ex;font-family:monaco,courier,courier new,monospace">C:\&gt;StarGen.exe
+</pre></td>
+		<td bgcolor="#FFFFFF"><pre style="background-color:#FFFFFF;width:12ex;font-family:monaco,courier,courier new,monospace">% ./stargen
+</pre></td>
+	</tr>
+</tbody></table>
+
+<p>
+
+If you invoke stargen with no options, it will give a brief usage listing as
+follows:
+
+</p><pre style="left-margin:3ex;background-color:#FFFFFF;padding:1ex;width:60ex;border:1px solid;font-family:monaco,courier,courier new,monospace">% ./stargen
+Usage: stargen [options] [system name]
+  Options:
+    -s#  Set random number seed
+    -m#  Specify stellar mass
+    -n#  Specify number of systems
+    -i#  Number to increment each seed by
+    -x   Use the Solar System's masses/orbits
+    -X   Use the Solar System's orbits
+    -d   Use Dole's 15 nearby stars
+    -D#  Use Dole's system #n
+    -w   Use 51 nearby stars taken from the Web
+    -W#  Use Web system #n
+    -p   Specify the path for the output file
+    -o    Do thumbnails
+    -t   Text-only output
+    -v#  Set verbosity (hex value)
+    -l   List nearby stars and exit
+    -H   Output only systems with habitable planets
+    -2   Only systems with 2 or more habitable planets
+
+  Experimental options (may go away):
+    -c   Output Celestia .ssc file on stdout
+    -k   Incorporate known planets (incomplete)
+          (use only orbital data at present)
+          Without -k, -c skips systems with known planets.
+    -T   Like -x but use Titan rather than Saturn
+    -g   Show atmospheric gases
+    -Z   Dump tables used for gases and exit
+    -M   Do moons (highly experimental)
+
+        Nearest stars taken from:
+          http://www.solstation.com/stars.htm
+</pre>
+
+The section listing the Experimental options may very well differ from the ones
+shown here and  you shouldn't count on those options remaining. To generate
+systems, you add the appropriate options from the list above to your StarGen
+command. The <a href="#id3143969263">Command Line Options and
+Examples</a> section, below, shows a number of useful combinations. The one to
+generate the system at the top of this page is:
+
+<p>
+
+</p><table cellspacing="0" cellpadding="5" border="1" align="center">
+	<tbody><tr>
+		<th>Windows</th>
+		<th>Unix and MacOS X</th>
+	</tr>
+	<tr>
+		<td bgcolor="#FFFFFF"><pre style="background-color:#FFFFFF;font-family:monaco,courier,courier new,monospace">C:\&gt;StarGen.exe -W5 -s48 -g
+</pre></td>
+		<td bgcolor="#FFFFFF"><pre style="background-color:#FFFFFF;font-family:monaco,courier,courier new,monospace">% ./stargen -W5 -s48 -g
+</pre></td>
+	</tr>
+</tbody></table>
+
+<p>
+
+When Stargen runs, it creates its files in the html folder (or
+directory) in your StarGen folder. You should be able to open the HTML
+files created there with any web browser.
+
+</p><p>
+
+</p><h3 align="center"><a id="id3143969262" name="id3143969262">Running StarGen from
+the Mac OS UI</a></h3>
+
+You run StarGen just as you would any Mac application--just double-click on it
+in the Finder. Choose the version of the program appropriate to your hardware:
+<font face="geneva">StarGen PPC</font> if you are running a modern Power PC, and
+<font face="geneva">StarGen 68K</font> if you are running on the original 680x0
+hardware. When you do so, you will see the following dialog box: (The color and
+button shape will be different unless you use my Eldacur Mauvelous Kaleidoscope
+scheme.)
+
+<p>
+
+</p><center> <img src="archivos/Console.gif" alt="Picture showing
+the StarGen's console dialog on Mac OS" width="439" height="194"> </center>
+
+<p>
+
+The box labelled <font face="Charcoal,System,Chicago,Arial
+Black">Argument</font> Is used for entering the same options that you would
+enter on the command line if you ran StarGen on a Unix system. Sorry, StarGen
+was designed to be platform independent, not to have a great Macintosh UI.
+
+</p><p>
+
+As with the Unix version, you must supply options or a System name. If you
+don't, a text window will appear, containing the following information:
+
+</p><p>
+
+</p><pre style="left-margin:3ex;background-color:#FFFFFF;padding:1ex;width:60ex;border:1px solid;font-family:monaco,courier,courier new,monospace">Usage: stargen [options] [system name]
+  Options:
+    -s#  Set random number seed
+    -m#  Specify stellar mass
+    -n#  Specify number of systems
+    -i#  Number to increment each seed by
+    -x   Use the Solar System's masses/orbits
+    -X   Use the Solar System's orbits
+    -d   Use Dole's 15 nearby stars
+    -D#  Use Dole's system #n
+    -w   Use 51 nearby stars taken from the Web
+    -W#  Use Web system #n
+    -p   Specify the path for the output file
+    -o    Do thumbnails
+    -t   Text-only output
+    -v#  Set verbosity (hex value)
+    -l   List nearby stars and exit
+    -H   Output only systems with habitable planets
+    -2   Only systems with 2 or more habitable planets
+
+  Experimental options (may go away):
+    -c   Output Celestia .ssc file on stdout
+    -k   Incorporate known planets (incomplete)
+          (use only orbital data at present)
+          Without -k, -c skips systems with known planets.
+    -T   Like -x but use Titan rather than Saturn
+    -g   Show atmospheric gases
+    -Z   Dump tables used for gases and exit
+    -M   Do moons (highly experimental)
+
+        Nearest stars taken from:
+          http://www.solstation.com/stars.htm
+</pre>
+
+<p>
+
+Any time a text window like this appears, you can dismiss it by quitting
+StarGen. Just type Command-Q, or choose <font face="Charcoal,System,Chicago,Arial Black">Quit</font> from the <font face="Charcoal,System,Chicago,Arial Black">File</font> menu. You can either save
+the contents of the window or discard it.
+
+</p><p>
+
+If you type in the options shown in the picture above, you will create a file
+called <font face="geneva">Tau-Ceti-48.html</font> in the <font face="geneva">html</font> folder located in the same folders as the <font face="geneva">StarGen</font> application.
+
+</p><p>
+
+From this point, running StarGen is just like on Unix and other command line
+systems, so, proceed to the next section...
+
+</p><h3 align="center"><a id="id3143969263" name="id3143969263">Command Line Options and Examples</a></h3>
+
+<center>
+<table width="98%" cellspacing="1" cellpadding="5" border="3">
+<tbody><tr>
+	<th rowspan="2" width="20%">Option</th>
+	<th colspan="2" align="left">Description</th>
+</tr><tr>
+	<th width="25%">Example</th>
+	<th>Explanation</th>
+</tr><tr>
+	<td rowspan="2" align="center">-s<i>number</i></td>
+	<td colspan="2">Set random number seed. This sets the initial value used by the random
+					number generator at the heart of StarGen. This will cause the program
+					to generate the same system each time the same seed and stellar
+					mass are used on any given operating system. In fact, my experience
+					is that the Mac and GNU versions create extremely similar systems.
+					</td>
+</tr><tr>
+	<td align="center"><font face="courier, courier new, monospace">-s38 -W3</font></td>
+	<td>Create a system around Epsilon Eridani using the same random numbers that were
+		used to create the
+		<a href="http://www.eldacur.com/~brons/NerdCorner/StarGen/Epsilon-Eridani-38.html">page</a>
+		that CNN found and pointed to in their story about the real Epsilon Eridani.
+		You can compare your results to mine to see if the random number generator on
+		your operating system operates the same way as on the Mac.</td>
+</tr><tr>
+	<td rowspan="2" align="center">-m<i>number</i></td>
+	<td colspan="2">Specify stellar mass. This option allows you to determine the mass
+					of the star used. This also determines the amount of dust and gas
+					used to accrete the planets.</td>
+</tr><tr>
+	<td align="center"><font face="courier, courier new, monospace">-m.98</font></td>
+	<td>Create a system around a star with a mass 98% that of the sun.</td>
+</tr><tr>
+	<td rowspan="2" align="center">-n<i>number</i></td>
+	<td colspan="2">Specify the number of systems to generate. If you combine it with
+					either -d or -w, StarGen will create that many versions of each
+					star.</td>
+</tr><tr>
+	<td align="center"><font face="courier, courier new, monospace">-s1 -m1 -n10</font></td>
+	<td>Create 10 systems starting with a seed of 1 and using a star with the same
+		mass as the sun.</td>
+</tr><tr>
+	<td rowspan="2" align="center">-i<i>number</i></td>
+	<td colspan="2">Number to increment each seed by</td>
+</tr><tr>
+	<td align="center"><font face="courier, courier new, monospace">-s20 -n10 -i2</font></td>
+	<td>Create 10 systems, starting with #20, and incrementing by 2 each time.</td>
+</tr><tr>
+	<td rowspan="2" align="center">-x</td>
+	<td colspan="2">Use the Solar System's masses/orbits. This option disables the
+					random generation of planets. Instead it uses the masses and
+					orbits of the planets in the solar system.</td>
+</tr><tr>
+	<td align="center"><font face="courier, courier new, monospace">-s17 -m1.1 -x</font></td>
+	<td>This will place our planets around a sun 10% larger than our sun, moving the
+		habitable zone further out. The seed is used only to set the system number
+		used in the Title of the web page, and for randomizing a few of the
+		environmental variables.</td>
+</tr><tr>
+	<td rowspan="2" align="center">-X</td>
+	<td colspan="2">Use the Solar System's orbits. This option allows you to create
+					systems with the same spacing as the solar system. The masses
+					will be different, depending on the amount of dust and
+					gas that each planetesimal accumulates.</td>
+</tr><tr>
+	<td align="center"><font face="courier, courier new, monospace">-s17 -m1.1 -X</font></td>
+	<td>This will create a system that is what the solar system might be like if the sun
+		was about 10% larger than it is. Since the mass of the star is larger, there will
+		be more matter in the initial disk, and the resulting planets will be larger.</td>
+</tr><tr>
+	<td rowspan="2" align="center">-d</td>
+	<td colspan="2">Use Dole's 15 nearby stars. This option will cause StarGen to create
+					15 systems, one for each of the stars listed by Stephen Dole in his
+					book
+					<a href="http://www.amazon.com/exec/obidos/ASIN/0444000925"><cite>Habitable
+					Planets for Man</cite></a> as most likely to have habitable
+					planets.</td>
+</tr><tr>
+	<td align="center"><font face="courier, courier new, monospace">-s17 -d</font></td>
+	<td>Create 15 systems based on the nearby systems that are listed as most likely
+		to have habitable planets by Dole.</td>
+</tr><tr>
+	<td rowspan="2" align="center">-D<i>number</i></td>
+	<td colspan="2">Use Dole's system #n. This option allows you to simulate a specific
+					star from Dole's list.</td>
+</tr><tr>
+	<td align="center"><font face="courier, courier new, monospace">-D15 -s127</font></td>
+	<td>This generates system #127 around HR753 A, the star least likely to have a
+		habitable planet among the Dole set.</td>
+</tr><tr>
+	<td rowspan="2" align="center">-w</td>
+	<td colspan="2">Use 51 nearby stars taken from the
+<a href="http://www.solstation.com/stars.htm">http://www.solstation.com/stars.htm</a>
+					web page. The stars can be listed with the -l option.</td>
+</tr><tr>
+	<td align="center"><font face="courier, courier new, monospace">-s1723 -w</font></td>
+	<td>Create 51 systems based on the nearby systems that are listed as most likely
+		to have habitable planets on the <a href="http://www.solstation.com/index.html">Sol Station</a> Web site.</td>
+</tr><tr>
+	<td rowspan="2" align="center">-W<i>number</i></td>
+	<td colspan="2">Use Web system #n. This option allows you to generate a system for a
+					specific star.</td>
+</tr><tr>
+	<td align="center"><font face="courier, courier new, monospace">-W1</font></td>
+	<td>Create a system for Alpha Centauri A.</td>
+</tr><tr>
+	<td rowspan="2" align="center">-t</td>
+	<td colspan="2">Text-only output. This option generates a simple text-format report
+					rather than the usual HTML.</td>
+</tr><tr>
+	<td align="center"><font face="courier, courier new, monospace">-t</font></td>
+	<td>Create a text file.</td>
+</tr><tr>
+	<td rowspan="2" align="center">-p <i>path</i></td>
+	<td colspan="2">Specify the path for the output file</td>
+</tr><tr>
+	<td align="center"><font face="courier, courier new, monospace">-p public_html</font></td>
+	<td>Generates the HTML files into the public_html directory rather than the default
+		html. Note that you will need to have the GIF files, Key.html and other support
+		files that are normally in the html directory.</td>
+</tr><tr>
+	<td rowspan="2" align="center">-o <i>filename</i></td>
+	<td colspan="2">Output the Thumbnails file to a specific file. This can be used to force
+					StarGen to create a Thumbnail file even if it is only creating a
+					single output file or to direct the thumbnail file to a specific
+					file.</td>
+</tr><tr>
+	<td align="center"><font face="courier, courier new, monospace">-w -s1 -n10 -i1 -H <br>
+																		 -p Doubles/ <br>
+																		 -o index.html</font></td>
+	<td>Runs through all 51 of the Web-derived systems 10 times, listing only those
+	    with two habitable planets, outputting the results to the Doubles directory
+	    and storing the thumbnails in the index.html file in Doubles. </td>
+</tr><tr>
+	<td rowspan="2" align="center">-v <i>flags</i></td>
+	<td colspan="2">Out more verbose messages. StarGen can output a lot of information
+					while it is running to allow you monitor its progress, find certain
+					kinds of systems or debug the program itself.
+					<p>
+					Which bits of information are determined by the "flags", which are
+					specified as a hexidecimal value. If you use just a -v without
+					specifying a hex value, StarGen will list the available values:
+					</p><pre style="left-margin:3ex;background-color:#FFFFFF;padding:1ex;width:48ex;border:1px solid;font-family:monaco,courier,courier new,monospace">Verbosity flags are hexidecimal numbers:
+        0001    Earthlike count
+        0002    Trace Min/Max
+        0004    List Earthlike
+
+        0010    List Gases
+        0020    Trace temp iterations
+        0040    Gas lifetimes
+        0080    List loss of accreted gas mass
+
+        0100    Injecting, collision
+        0200    Checking..., Failed...
+        0800    List accreted atmospheres
+
+        1000    Moons (experimental)
+        2000    Oxygen poisoned (experimental)</pre>
+        			These values can be added, so <tt>-v 0005</tt> both lists the
+        			earthlike planets that are generated (0004) and summarizes them
+        			at the end (0001).
+        			<p>
+        			Note that these are hexidecimal numbers (base-16) in which the
+        			letters a through f represent the values from 10 to 15. Thus
+        			<tt>-v ffff</tt> is maximum verbosity.
+        			</p></td>
+</tr><tr>
+	<td align="center"><font face="courier, courier new, monospace">-v 20</font></td>
+	<td>In order to calculate the surface temperature, StarGen uses an iterative
+		simulation of the atmosphere. It repeatedly calculates the temperature,
+		the amount of clouds, the reflectivity and the greenhouse effect. A value of 0020
+		cause a line to be printed out for each round of calculations.</td>
+</tr><tr>
+	<td rowspan="2" align="center">-l</td>
+	<td colspan="2">List nearby stars and exit. This option allows you to lists the stars
+					in either of the two sets of nearby stars, along with their mass and
+					luminosity,</td>
+</tr><tr>
+	<td align="center"><font face="courier, courier new, monospace">-d -l</font></td>
+	<td>List the 15 nearby planets from Dole.</td>
+</tr><tr>
+	<td rowspan="2" align="center">-H</td>
+	<td colspan="2">Only output files for systems that contain at least one planet with
+					a breathable atmosphere. </td>
+</tr><tr>
+	<td align="center"><font face="courier, courier new, monospace">-d -s1 -H</font></td>
+	<td>Generates a set of systems based on Dole's list, only listing the systems that
+		end up with a breathable atmosphere.</td>
+</tr><tr>
+	<td rowspan="2" align="center">-2</td>
+	<td colspan="2">Only output files for systems that contain at least 2 planets with
+					a breathable atmosphere. </td>
+</tr><tr>
+	<td align="center"><font face="courier, courier new, monospace">-w -s1 -2 -n10 -i1 -v1</font></td>
+	<td>Generates a set of systems based on the Web list, only listing the systems that
+		contain two habitable planets. These are rare enough that we run through the
+		list 10 times. The -v1 option is used because the 0001 verbosity will cause
+		a line of output as each system with two habitable planets is created,
+		in addition to listing the counts when the run is done.
+		The output looks like this:
+
+					<small><pre style="left-margin:3ex;background-color:#FFFFFF;padding:1ex;border:1px solid;font-family:monaco,courier,courier new,monospace">% stargen -w -s1 -2 -n20 -i1 -v1 -o doubles.html
+System 25 - 61 Virginis (-s25 -W25) has 2 planets with breathable atmospheres.</pre></small>
+		<p>
+		Note that it includes the options you would need to create just this one system
+		(<i>-s25 -W25</i>). This allows you to use -n with a very large value to search
+		for this sort of system.
+		</p></td>
+</tr><tr>
+	<td rowspan="2" align="center">-g</td>
+	<td colspan="2">Show (experimental) atmospheric gases. This option causes a dump of
+					gases and liquids that could be present on each planet. This
+					code came from Keris and has not been fully integrated into
+					StarGen.</td>
+</tr><tr>
+	<td align="center"><font face="courier, courier new, monospace">-g</font></td>
+	<td>Causes the gas and liquids info to be inserted after the table for each
+		planet.</td>
+</tr>
+</tbody></table>
+</center>
+
+<h3 align="center"><a id="id3153603211" name="id3153603211">Command Line Example Tool</a></h3>
+
+<p>
+
+The fact that StarGen is a command line tool has given a number of
+people a bit of difficulty, both on MacOS X and Windows, as users of
+these systems seldom have to use command line interfaces. A friend and I
+ are working to help solve this problem by developing both a Windows
+front end and an HTML front end. It may be a while until these versions
+are available, so I am also making a piece of the Web application
+available here on the Web version of the StarGen Manual. (Another friend
+ has offered to help rewrite the documentation, as well, and the this
+tool may be incorporated there as well.)
+
+</p>
+
+<form method="get" name="StarGenForm" onreset="BuildCommand();">
+<table rules="none" style="margin-right:5px" cellpadding="2" border="2" bgcolor="#FFFFFF" align="left">
+<tbody><tr>
+<th align="left">
+	Catalog:
+</th>
+<td>
+<select name="Catalog" onchange="BuildCommand();">
+	<option value="none" selected="selected">None</option>
+	<option value="d">Dole</option>
+	<option value="w">SolStation</option>
+</select>
+
+<select name="SolStation" onchange="BuildCommand();" disabled="disabled" style="display: none">
+	<option value="x" selected="selected">All</option>
+	<option value="0">The Solar System</option>
+	<option value="1">Alpha Centauri A</option>
+	<option value="2">Alpha Centauri B</option>
+	<option value="3">Epsilon Eridani</option>
+	<option value="4">61 Cygni A</option>
+	<option value="5">Tau Ceti</option>
+	<option value="6">40 Eridani A</option>
+	<option value="7">70 Ophiuchi A</option>
+	<option value="8">Sigma Draconis</option>
+	<option value="9">HR 5568</option>
+	<option value="10">Eta Cassiopeiae A</option>
+	<option value="11">HR 7703 (HJ 5173) A</option>
+	<option value="12">82 Eridani</option>
+	<option value="13">Delta Pavonis</option>
+	<option value="14">HR 8832</option>
+	<option value="15">Xi Bootis A</option>
+	<option value="16">HR 753 A</option>
+	<option value="17">BD+04 123 (HR 222)</option>
+	<option value="18">Beta Hydri</option>
+	<option value="19">107 Piscium</option>
+	<option value="20">Pi3 Orionis A</option>
+	<option value="21">p Eridani A</option>
+	<option value="22">p Eridani B</option>
+	<option value="23">Chara</option>
+	<option value="24">Xi Ursae Majoris Ba</option>
+	<option value="25">61 Virginis</option>
+	<option value="26">Zeta Tucanae</option>
+	<option value="27">Chi1 Orionis A</option>
+	<option value="28">41 Arae A</option>
+	<option value="29">BD-05 1123 (HR 1614) A</option>
+	<option value="30">CD-27 14659 (HR 7722)</option>
+	<option value="31">Gamma Leporis A</option>
+	<option value="32">Beta Comae Berenices</option>
+	<option value="33">Kappa Ceti</option>
+	<option value="34">Gamma Pavonis</option>
+	<option value="35">HR 4523</option>
+	<option value="36">61 Ursae Majoris</option>
+	<option value="37">CD-32 8179 (HR 4458)</option>
+	<option value="38">12 Ophiuchi</option>
+	<option value="39">BD+63 238 (HR 511)</option>
+	<option value="40">Alpha Mensae</option>
+	<option value="41">Zeta 1 Reticuli</option>
+	<option value="42">Zeta 2 Reticuli</option>
+	<option value="43">44 Bootis A</option>
+	<option value="44">47 Ursae Majoris</option>
+	<option value="45">Iota Horologii</option>
+	<option value="46">Epsilon Indi</option>
+	<option value="47">70 Ophiuchi B</option>
+	<option value="48">36 Ophiuchi A</option>
+	<option value="49">36 Ophiuchi B</option>
+	<option value="50">MLO 4 (HR 6426) A</option>
+	<option value="51">BD-05 1844 A</option>
+</select>
+
+<select name="Dole" disabled="disabled" style="display: none" onchange="BuildCommand();">
+	<option value="x" selected="selected">All</option>
+	<option value="0">The Solar System</option>
+	<option value="1">Alpha Centauri A</option>
+	<option value="2">Alpha Centauri B</option>
+	<option value="3">Epsilon Eridani</option>
+	<option value="4">Tau Ceti</option>
+	<option value="5">70 Ophiuchi A</option>
+	<option value="6">Eta Cassiopeiae A</option>
+	<option value="7">Sigma Draconis</option>
+	<option value="8">36 Ophiuchi A</option>
+	<option value="9">36 Ophiuchi B</option>
+	<option value="10">HR7703 A</option>
+	<option value="11">Delta Pavonis</option>
+	<option value="12">82 Eridani</option>
+	<option value="13">Beta Hydri</option>
+	<option value="14">HR8832</option>
+	<option value="15">HR753 A</option>
+</select>
+</td>
+</tr><tr>
+<th valign="top" align="left">
+	Options:
+</th>
+<td>
+
+<table cellspacing="0" cellpadding="2" border="1">
+<tbody><tr>
+</tr><tr>
+	<td>Set random number seed:</td>
+	<td><input type="text" name="Seed" size="10" maxlength="10" onchange="BuildCommand();"></td>
+</tr><tr>
+	<td>Specific stellar mass:</td>
+	<td><input type="text" name="Mass" size="10" maxlength="10" onchange="BuildCommand();"></td>
+</tr><tr>
+	<td>Repeat count:</td>
+	<td><input type="text" name="Count" size="10" maxlength="10" onchange="BuildCommand();"></td>
+</tr><tr>
+	<td>Increment each seed by:</td>
+	<td><input type="text" name="Incr" size="10" maxlength="10" onchange="BuildCommand();"></td>
+</tr><tr>
+	<td colspan="2" align="center">
+		<input type="checkbox" name="Gas" onclick="BuildCommand();">
+		Use experimental atmosphere model
+	</td>
+</tr>
+</tbody></table>
+</td>
+</tr><tr>
+<th align="left">
+	Filter:
+</th>
+<td>
+<select name="Output" onchange="BuildCommand();">
+	<option value="all" selected="selected">Output all systems</option>
+	<option value="h">Only systems with habitable worlds</option>
+	<option value="2">Only systems with 2 habitable worlds</option>
+</select>
+</td>
+</tr><tr>
+<td valign="middle" align="right">
+<input type="submit" name="DoIt" value="stargen" onclick="return BuildCommand();">
+</td>
+<td valign="middle" align="left">
+	<input type="text" name="Command" size="36" readonly="readonly">
+</td>
+</tr>
+</tbody></table>
+</form>
+
+<p>
+
+The table to the left is part of the CGI front end to StarGen. While the
+ full application will actually run StarGen and display the results,
+this version merely offers a bit of help in understanding how to specify
+ the command on the command line. In most browsers you should even be
+able to cut and paste the options to your Command Prompt or Terminal
+window.
+
+
+</p><p>
+
+In the upper left corner of the tool you should see a pop-up menu
+labelled "Catalog". If you select "Dole" from the menu, a second menu
+should appear to its right, showing the word "All". Also a "-d" should
+appear in the text box at the bottom of the tool, because "-d" is the
+option you would use to request that StarGen generate the full Dole
+catalog of systems.
+
+</p><p>
+
+If you select "Epsilon Eridani" from the second menu, rather than "All",
+ the "-d" should turn into "-D3", the option that specifies that you
+wish to create just the Epsilon Eridani system from the Dole catalog.
+
+</p><p>
+
+Selecting "SolStation" from the first menu should replace the Dole
+catalog menu to  the right with a SolStation catalog. Again "All" should
+ appear in the second menu. This time the text box at the bottom will
+show "-w". Choosing "82 Eridani" from the menu should change that to
+"-W12".
+
+</p><p>
+
+Choosing either "Dole" or "SolStation" from the first menu disables the
+"Specific stellar mass" option. If instead you select "None" from the
+catalog menu, you can then specify the mass in solar masses of the star
+to use to create the system. Selecting "None" and then entering "1.2" in
+ the "Specific stellar mass" text box should cause "-m1.2" to appear in
+the text box at the bottom. You will need to move the cursor out of the
+text box for the tool to know you are done. In most browsers you can do
+this by pressing TAB.
+
+</p><p>
+
+To create a system using a specific random number seed you can type the
+number in the "Set random number seed" box. Selecting "SolStation", "Tau
+ Ceti", setting the random number seed to 48 and checking the "Use
+experimental atmosphere model" checkbox, should result in the text box
+showing "-W5 -s48 -g", the options used in examples throughout this
+manual.
+
+</p><p>
+
+The "Repeat count" box is used to specify that a number of systems
+should be created. If you combine it with "All" from one of the two
+catalogs it will run through the whole catalog that number of times.
+This can quickly fill your html folder with files. To lessen this, you
+may want to select "Only systems with habitable worlds" or "Only systems
+ with 2 habitable worlds" from the "Filter" menu.
+
+</p><p>
+
+The "Increment each seed by" box allows you to specify how much the
+random number seed is increased between systems. It works in combination
+ with either "All" from one of the two catalogs or a repeat count.
+
+</p><p>
+
+The "Use experimental atmosphere model" causes a list of gases and percentages to be listed for the smaller planets.
+
+</p><p>
+
+Play with the tool until you have a system that you might like to create
+ specified, then cut and paste the command options to your Command
+Prompt, Terminal or console window, press Return and the files should be
+ created in the "html" folder (or directory) in your StarGen folder.
+
+<br clear="all">
+</p><h2 align="center"><a id="id3143969264" name="id3143969264">Further Reading</a></h2>
+
+
+<p>
+
+StarGen owes a lot to many different precursors written by several authors over
+the years. It's oldest roots are a couple of papers published 30 or more years
+ago by Stephen Dole of the Rand corporation. Additional information came from a
+1985 paper by Martyn J. Fogg.
+
+</p><p>
+
+Based on these papers Dole and &lt;<i>the Rand employee whose name I've
+forgotten</i>&gt; created a program called Accrete, which was originally coded
+in FORTRAN. Carl Sagan and R. Isaacson refined the model and published a paper
+of their own in 1977. Inspired by the Dole and Sagan papers, Martyn Fogg created
+a microcomputer version of Accrete, still in Fortran, and published a paper in
+1985. In 1988, Matthew Burdick, who turned the Accrete model as described by
+Fogg into a program called "starform". I believe that it was he who incorporated
+ the earlier work of Kothari into the code.
+
+</p><p>
+
+There have been several different versions of starform, with bits and pieces
+added and modified by others over the years.
+
+These include programs by Ian Burrell, C. Burke and Chris Croughton, aka Keris.
+
+My own StarGen is based on a couple of these, and I'll confess that I've lost
+track of which authors beyond Burdick, Fogg and Keris.
+
+</p><p>
+
+My own work on Solar System generators started in 1970, when I encountered
+Asimov's popularization of Dole's book, "Planets for Man". I immediately
+purchased a copy of the second edition of "Habitable Planets for Man", which had
+just been published by American Elsevier. In 1971 I created my own program in
+Fortran. During the 70's, I created various versions of this program, all since
+lost, in FORTRAN, BasicPlus and C. I ran into stargen in the late 80's and
+started working on various modifications of it, since its simulations were much
+better than my own.
+
+</p><center>
+<table frame="box" cellspacing="3" cellpadding="3" border="1" bgcolor="#FFFFFF">
+	<caption align="bottom">
+		StarGen, StarForm, Accrete Bibliography
+	</caption>
+	<tbody><tr><td>
+<dl>
+	<dt>"The Internal Constitution of the Planets"
+		</dt><dd>D. S. Kothari, Ph.D. , Mon. Not. Roy. Astr. Soc. Vol 96, pp. 833 - 843, 1936
+	</dd><dt><a href="http://www.amazon.com/exec/obidos/ASIN/0444000925">"Habitable Planets for Man"</a>
+		</dt><dd>S. H. Dole, Blaisdell Publishing Company, NY, 1964.
+	</dd><dt>"Q in the Solar System"
+		</dt><dd>P. Goldreich and S. Soter, Icarus, Vol 5, pp. 375 - 389, 1966
+	</dd><dt><a href="http://www.rand.org/cgi-bin/Abstracts/e-getabbydoc.pl?P-4226">"Formation of Planetary Systems by Aggregation: A Computer Simulation"</a>
+		</dt><dd>S. H. Dole, RAND paper no. P-4226, 1969
+	</dd><dt>"Computer Simulation of the Formation of Planetary Systems"
+		</dt><dd>Dole, S.  Icarus, vol 13, pp 494-508, 1970.
+	</dd><dt>"Computer Simulation of Planetary Accretion Dynamics: Sensitivity to Initial Conditions"
+		</dt><dd>Isaacman, R. &amp; Sagan, C.  Icarus, vol 31, p 510, 1977.
+	</dd><dt>"The Evolution of the Atmosphere of the Earth"
+		</dt><dd>Michael H. Hart, Icarus, Vol 33, pp. 23 - 39, 1978
+	</dd><dt>"Extra-Solar Planetary Systems: A Microcomputer Simulation"
+		</dt><dd>Fogg, Martyn J. Journal of the British Interplanetary Society, vol 38, 501-514, 1985.
+	</dd><dt>Accrete
+		</dt><dd>&lt;<i>the Rand employee whose name I've forgotten</i>&gt;
+	</dd><dt>Starform
+		</dt><dd>Matthew Burdick
+</dd></dl>
+</td></tr>
+</tbody></table>
+</center>
+
+
+
+</body></html>

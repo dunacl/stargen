@@ -1,0 +1,9 @@
+.idea/*
+.idea
+*.o
+.DS_Store
+stargen
+html/*
+.vscode/*
+.vscode
+.editorconfig
