@@ -61,6 +61,7 @@ tools from the command line.
 To get more detailed documentation on building StarGen, feed the file
 Manual2-Building.html in the help folder or directory to a Web browser or
 Help viewer that reads HTML files.
+New Line
 
 JimB. aka Brons
 Jim Burrows
