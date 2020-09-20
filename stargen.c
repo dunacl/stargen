@@ -1820,7 +1820,7 @@ int stargen(
 
       case ffJSON:
         //text_describe_system(innermost_planet, do_gases, flag_seed);
-        jsonOutput(innermost_planet, do_gases, flag_seed);
+        //jsonOutput(innermost_planet, do_gases, flag_seed);
         printf("\n");
         break;
 
